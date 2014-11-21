@@ -33,7 +33,10 @@ static SoundOutputDevice* outputDevice;
 // Create a buffer to hold the output of the propagation system.
 static SoundPropagationPathBuffer* pathBuffer;
 
-
+SoundMaterial* getMaterial(float gain67, float gain125, float gain250, float gain500,
+	float gain1000, float gain2000, float gain4000, float gain8000,
+	float tranRolloffFq, float tranRolloffSpeed,
+	float absRolloff);
 
 // Load a box with the specified dimensions and material.
 SoundMesh* loadBox(const AABB3& box, const SoundMaterial& material);
@@ -53,3 +56,8 @@ __declspec(dllexport) void update();
 __declspec(dllexport) void stop();
 __declspec(dllexport) void clear();
 __declspec(dllexport) void addSource(const char* soundFile, float posX, float posY, float posZ, float volume);
+__declspec(dllexport) void addAABB(float minX, float maxX, float minY, float maxY, float minZ, float maxZ,
+	float gain67, float gain125, float gain250, float gain500,
+	float gain1000, float gain2000, float gain4000, float gain8000,
+	float tranRolloffFq, float tranRolloffSpeed,
+	float absRolloff);

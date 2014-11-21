@@ -202,31 +202,7 @@ void init()
 	listener = new SoundListener;
 	listener->setPosition(Vector3(0, 1.5, 0));
 
-	// Create a material object which will be the material for the box's surface.
-	// The material is specified in terms of FrequencyResponse objects that dictate
-	// how sound is affected when it undergoes the associated interaction.
-	SoundMaterial defaultMaterial(
-		// The reflection attenuation for the material.
-		FrequencyResponse::getLinearHighRolloff(1000)*
-		FrequencyResponse::getLinearLowRolloff(200)*0.9,
-		// The transmisison attenuation per world unit for the material.
-		FrequencyResponse::getQuadraticHighRolloff(800)*0.9,
-		// The absorption attenuation for the material.
-		FrequencyResponse::getLinearHighRolloff()*0.5);
 
-
-	// Create an axis-aligned box that is 4x8x3 meters, centered
-	// at the origin that uses the default material.
-	SoundMesh* box = loadBox(AABB3(-2, 2, -1.5, 1.5, -4, 4), defaultMaterial);
-
-	SoundObject* boxObject = new SoundObject(box);
-
-	// Set the position of the box so that it is now 1.5 units higher along the Y-axis.
-	boxObject->setPosition(Vector3(0, 1.5, 0));
-
-	// Add the box to the scene
-	scene = new SoundScene;
-	scene->addObject(boxObject);
 
 	//***********************************************************************
 
@@ -262,6 +238,50 @@ void init()
 
 	// Start outputing audio to the device.
 	outputDevice->start();
+}
+
+void addAABB(float minX, float maxX, float minY, float maxY, float minZ, float maxZ,
+	float gain67, float gain125, float gain250, float gain500,
+	float gain1000, float gain2000, float gain4000, float gain8000,
+	float tranRolloffFq, float tranRolloffSpeed,
+	float absRolloff)
+{
+	// Create a material object which will be the material for the box's surface.
+	// The material is specified in terms of FrequencyResponse objects that dictate
+	// how sound is affected when it undergoes the associated interaction.
+	//SoundMaterial defaultMaterial(
+	//	// The reflection attenuation for the material.
+	//	FrequencyResponse::getLinearHighRolloff(1000)*
+	//	FrequencyResponse::getLinearLowRolloff(200)*0.9,
+	//	// The transmisison attenuation per world unit for the material.
+	//	FrequencyResponse::getQuadraticHighRolloff(800)*0.9,
+	//	// The absorption attenuation for the material.
+	//	FrequencyResponse::getLinearHighRolloff()*0.5);
+
+	SoundMaterial* material = getMaterial(gain67, gain125, gain250, gain500, gain1000, gain2000, gain4000, gain8000,
+		tranRolloffFq, tranRolloffSpeed, absRolloff);
+
+
+	// Create an axis-aligned box that is 4x8x3 meters, centered
+	// at the origin that uses the default material.
+	//SoundMesh* box = loadBox(AABB3(-2, 2, -1.5, 1.5, -4, 4), defaultMaterial);
+	SoundMesh* box = loadBox(AABB3(minX, maxX, minY, maxY, minZ, maxZ), *material);
+
+	SoundObject* boxObject = new SoundObject(box);
+
+	// Add the box to the scene
+	scene->addObject(boxObject);
+}
+
+SoundMaterial* getMaterial(float gain67, float gain125, float gain250, float gain500,
+	float gain1000, float gain2000, float gain4000, float gain8000,
+	float tranRolloffFq, float tranRolloffSpeed,
+	float absRolloff)
+{
+	FrequencyResponse reflectionFR = FrequencyResponse(gain67, gain125, gain250, gain500, gain1000, gain2000, gain4000, gain8000);
+	FrequencyResponse transmissionFR = FrequencyResponse::getQuadraticHighRolloff(tranRolloffFq)*tranRolloffSpeed;
+	FrequencyResponse absorptionFR = FrequencyResponse::getLinearHighRolloff()*absRolloff;
+	return new SoundMaterial(reflectionFR, absorptionFR, transmissionFR);
 }
 
 void addSource(const char* soundFile, float posX, float posY, float posZ, float volume)
