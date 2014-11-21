@@ -292,4 +292,7 @@ void setCurrentDirectory()
 }
 
 
-
+int getSomeInt()
+{
+	return 42;
+}

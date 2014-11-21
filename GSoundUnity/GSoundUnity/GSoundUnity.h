@@ -20,3 +20,6 @@ void setCurrentDirectory();
 
 // Main method
 __declspec(dllexport) void playSound();
+
+// Test method
+__declspec(dllexport) int getSomeInt();

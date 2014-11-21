@@ -326,7 +326,7 @@ class SoundOutputDevice:: SoundOutputDeviceWrapper
 			{
 				if ( isRunning )
 				{
-					WaitForSingleObject( driverThread, INFINITE );
+					WaitForSingleObject( driverThread, 100 );
 					
 					// Stop the output stream.
 					HRESULT result = audioClient->Stop();

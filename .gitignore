@@ -38,3 +38,5 @@ GSoundUnity/GSoundUnityTest/Release/*
 *.vcxproj.user
 GSoundUnity/GSoundCSharpTest/bin/*
 GSoundUnity/GSoundCSharpTest/obj/*
+GSoundUnity/GSoundUnityTest/Debug/GSoundUnityTest.tlog/link.command.1.tlog
+GSoundUnity/GSoundUnityTest/Debug/*
