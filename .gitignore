@@ -36,3 +36,5 @@ GSoundUnity/GSoundUnity/Debug/*
 *.sdf
 GSoundUnity/GSoundUnityTest/Release/*
 *.vcxproj.user
+GSoundUnity/GSoundCSharpTest/bin/*
+GSoundUnity/GSoundCSharpTest/obj/*
