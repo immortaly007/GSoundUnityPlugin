@@ -9,7 +9,7 @@ void playSound(const char* soundFile)
 	setCurrentDirectory();
 
 	// The object which performs sound propagation.
-	//SoundPropagator propagator;
+	SoundPropagator propagator;
 
 	// Enable all types of propagation paths.
 	propagator.setDirectSoundIsEnabled(true);
@@ -22,11 +22,11 @@ void playSound(const char* soundFile)
 
 	// The object which contains a collection of all sound objects,
 	// sound sources, and listeners in the scene.
-	//SoundScene scene;
+	SoundScene scene;
 
 	// The object which specifies the location and orientation of
 	// the sound reciever in the scene.
-	//SoundListener listener;
+	SoundListener listener;
 
 	// Set the listener's starting position, at head height and centered at the XZ origin.
 	listener.setPosition(Vector3(0, 1.5, 0));
@@ -142,7 +142,7 @@ void playSound(const char* soundFile)
 	//***********************************************************************
 
 	// Create a buffer to hold the output of the propagation system.
-	//SoundPropagationPathBuffer pathBuffer;
+	SoundPropagationPathBuffer pathBuffer;
 
 	Timer timer;
 
@@ -185,18 +185,22 @@ void playSound(const char* soundFile)
 
 void init()
 {
-	// Make the current directory the same as the directory containing the executable.
-	setCurrentDirectory();
+
+	propagator = new SoundPropagator;
+	scene = new SoundScene;
+	listener = new SoundListener;
+	pathBuffer = new SoundPropagationPathBuffer;
 
 	// Enable all types of propagation paths.
-	propagator.setDirectSoundIsEnabled(true);
-	propagator.setTransmissionIsEnabled(true);
-	propagator.setReflectionIsEnabled(true);
-	propagator.setDiffractionIsEnabled(true);
-	propagator.setReverbIsEnabled(true);
+	propagator->setDirectSoundIsEnabled(true);
+	propagator->setTransmissionIsEnabled(true);
+	propagator->setReflectionIsEnabled(true);
+	propagator->setDiffractionIsEnabled(true);
+	propagator->setReverbIsEnabled(true);
 
 	// Set the listener's starting position, at head height and centered at the XZ origin.
-	listener.setPosition(Vector3(0, 1.5, 0));
+	listener = new SoundListener;
+	listener->setPosition(Vector3(0, 1.5, 0));
 
 	// Create a material object which will be the material for the box's surface.
 	// The material is specified in terms of FrequencyResponse objects that dictate
@@ -221,50 +225,8 @@ void init()
 	boxObject->setPosition(Vector3(0, 1.5, 0));
 
 	// Add the box to the scene
-	scene.addObject(boxObject);
-
-	//***********************************************************************
-
-	SoundSource* source = new SoundSource();
-
-	// Set the position of the source so that it is on one side of the box.
-	source->setPosition(Vector3(0, 1, -3));
-
-	// Set the source to have an intensity of 1.
-	// This is the gain applied to the source's audio when there is no
-	// distance attenuation.
-	source->setIntensity(1);
-
-	// Create a distance attenuation object which specifies how the source's
-	// audio decreases in intensity with distance.
-	SoundDistanceAttenuation attenuation(1, // Constant attenuation of 1.
-		1, // Linear attenuation of 1.
-		0); // Quadratic attenuation of 0.
-
-	// Set the distance attenuation for the source.
-	source->setDistanceAttenuation(attenuation);
-
-	// Set the reverb distance attenuation for the source to slightly less
-	// than the normal distance attenuation.
-	source->setDistanceAttenuation(SoundDistanceAttenuation(1, 0.5, 0));
-
-	// Create a WAVE file decoder that will allow the source to use a WAVE file
-	// as its source audio. Use the file "sound.wav" in the current working directory.
-	WaveDecoder* decoder = new WaveDecoder("C:/acoustics.wav");
-
-	// Create a SoundPlayer object which handles sound playback from a seekable
-	// stream of audio. A decoder for another format (such as OGG) can be substituted
-	SoundPlayer* player = new SoundPlayer(decoder);
-
-	// Configure the sound player to start playing as soon as audio is requested and to loop.
-	player->setIsPlaying(true);
-	player->setIsLooping(true);
-
-	// Set the source of the sound source's audio.
-	source->setSoundInput(player);
-
-	// Add the sound source to the scene.
-	scene.addSource(source);
+	scene = new SoundScene;
+	scene->addObject(boxObject);
 
 	//***********************************************************************
 
@@ -302,31 +264,86 @@ void init()
 	outputDevice->start();
 }
 
+void addSource(const char* soundFile, float posX, float posY, float posZ, float volume)
+{
+	SoundSource* source = new SoundSource();
+
+	// Set the position of the source so that it is on one side of the box.
+	//source->setPosition(Vector3(0, 1, -3));
+	source->setPosition(Vector3(posX, posY, posZ));
+
+	// Set the source to have an intensity of 1.
+	// This is the gain applied to the source's audio when there is no
+	// distance attenuation.
+	source->setIntensity(volume);
+
+	// Create a distance attenuation object which specifies how the source's
+	// audio decreases in intensity with distance.
+	SoundDistanceAttenuation attenuation(1, // Constant attenuation of 1.
+		1, // Linear attenuation of 1.
+		0); // Quadratic attenuation of 0.
+
+	// Set the distance attenuation for the source.
+	source->setDistanceAttenuation(attenuation);
+
+	// Set the reverb distance attenuation for the source to slightly less
+	// than the normal distance attenuation.
+	source->setDistanceAttenuation(SoundDistanceAttenuation(1, 0.5, 0));
+
+	// Create a WAVE file decoder that will allow the source to use a WAVE file
+	// as its source audio. Use the file "sound.wav" in the current working directory.
+	WaveDecoder* decoder = new WaveDecoder(std::string(soundFile));
+
+	// Create a SoundPlayer object which handles sound playback from a seekable
+	// stream of audio. A decoder for another format (such as OGG) can be substituted
+	SoundPlayer* player = new SoundPlayer(decoder);
+
+	// Configure the sound player to start playing as soon as audio is requested and to loop.
+	player->setIsPlaying(true);
+	player->setIsLooping(true);
+
+	// Set the source of the sound source's audio.
+	source->setSoundInput(player);
+
+	// Add the sound source to the scene.
+	scene->addSource(source);
+
+	pathBuffer = new SoundPropagationPathBuffer;
+}
+
 void update() 
 {
-	std::cout << "Why you no normal!";
 	// Perform sound propagation in the scene.
-	propagator.propagateSound(scene, // The scene in which to perform propagation.
-		listener, // The listener to use as the sound receiver.
+	propagator->propagateSound(*scene, // The scene in which to perform propagation.
+		*listener, // The listener to use as the sound receiver.
 		4, // The maximum depth of the rays shot from the listener.
 		1000, // The number of rays to shoot from the listener,
 		// influences the quality of the early reflection paths.
 		4, // The maximum depth of the rays shot from each sound source.
 		100, // The number of rays to shoot from each sound source, 
 		// influences reverb estimation quality.
-		pathBuffer); // The buffer in which to put the propagation paths.
+		*pathBuffer); // The buffer in which to put the propagation paths.
 
 	// Update the state of the sound propagation renderer.
-	renderer->updatePropagationPaths(pathBuffer);
+	renderer->updatePropagationPaths(*pathBuffer);
 }
 
 void stop()
 {
 	// Stop outputing audio to the device and destroy it.
-	std::cout << "Stopping output device...\n";
-	outputDevice->stop(); // Bas: Apparently never ends
+	//std::cout << "Stopping output device...\n";
+	outputDevice->stop();
+	//std::cout << "Output device deleted...\n";
+}
+
+void clear()
+{
+	delete propagator;
+	delete scene;
+	delete listener;
+	delete renderer;
 	delete outputDevice;
-	std::cout << "Output device deleted...\n";
+	delete pathBuffer;
 }
 
 

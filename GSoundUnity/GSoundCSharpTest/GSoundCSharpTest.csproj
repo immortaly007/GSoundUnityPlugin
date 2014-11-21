@@ -57,6 +57,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GSoundUnityTest\Assembly-CSharp.csproj">
+      <Project>{08915b58-33fa-999e-d703-2a5347e4b6b7}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -10,32 +10,26 @@ namespace GSoundCSharpTest
 {
     class Program
     {
-        [DllImport("GSoundUnity.dll", EntryPoint = "?playSound@@YAXPBD@Z", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void playSound(string filename);
-
-        [DllImport("GSoundUnity.dll", EntryPoint = "?init@@YAXXZ", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void GSoundInit();
-
-        [DllImport("GSoundUnity.dll", EntryPoint = "?stop@@YAXXZ", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void GSoundStop();
-
-        [DllImport("GSoundUnity.dll", EntryPoint = "?update@@YAXXZ", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void GSoundUpdate();
-
 
         static void Main(string[] args)
         {
             //playSound("C:/acoustics.wav");
-
-            GSoundInit();
+            GSound.Init();
+            GSound.AddSource("C:/acoustics.wav", 0, 1, -3, 1);
             var time = new Stopwatch();
             time.Start();
-            while(time.ElapsedMilliseconds < 5000)
+            while(time.ElapsedMilliseconds < 1000)
             {
                 Console.WriteLine("Updating sound..." + time.ElapsedMilliseconds);
-                GSoundUpdate();
+                GSound.Update();
             }
-            GSoundStop();
+            GSound.Stop();
+            //GSound.Clear();
+
+            // Try if it can be run again real quick;
+            GSound.Init();
+            GSound.Update();
+            GSound.Stop();
         }
     }
 }

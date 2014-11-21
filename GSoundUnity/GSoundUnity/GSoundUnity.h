@@ -12,16 +12,16 @@ using namespace gsound;
 using gsound::util::Timer;
 
 // The object which performs sound propagation.
-static SoundPropagator propagator;
+static SoundPropagator* propagator;
 
 
 // The object which contains a collection of all sound objects,
 // sound sources, and listeners in the scene.
-static SoundScene scene;
+static SoundScene* scene;
 
 // The object which specifies the location and orientation of
 // the sound reciever in the scene.
-static SoundListener listener;
+static SoundListener* listener;
 
 // Create a sound propagation renderer that renders to stereo.
 static SoundPropagationRenderer* renderer;
@@ -31,7 +31,7 @@ static SoundPropagationRenderer* renderer;
 static SoundOutputDevice* outputDevice;
 
 // Create a buffer to hold the output of the propagation system.
-static SoundPropagationPathBuffer pathBuffer;
+static SoundPropagationPathBuffer* pathBuffer;
 
 
 
@@ -51,3 +51,5 @@ __declspec(dllexport) int getSomeInt();
 __declspec(dllexport) void init();
 __declspec(dllexport) void update();
 __declspec(dllexport) void stop();
+__declspec(dllexport) void clear();
+__declspec(dllexport) void addSource(const char* soundFile, float posX, float posY, float posZ, float volume);

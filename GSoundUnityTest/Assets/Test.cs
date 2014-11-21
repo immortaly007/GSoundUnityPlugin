@@ -4,34 +4,21 @@ using System.Runtime.InteropServices;
 using System.Threading;
 
 public class Test : MonoBehaviour {
-
-	[DllImport("GSoundUnity.dll", EntryPoint = "?playSound@@YAXPBD@Z", CallingConvention = CallingConvention.Cdecl)]
-	public static extern void PlaySound(string filename);
-
-	[DllImport("GSoundUnity.dll", EntryPoint = "?getSomeInt@@YAHXZ")]
-	public static extern int getSomeInt();
-
-    [DllImport("GSoundUnity.dll", EntryPoint = "?init@@YAXXZ", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void GSoundInit();
-
-    [DllImport("GSoundUnity.dll", EntryPoint = "?stop@@YAXXZ", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void GSoundStop();
-
-    [DllImport("GSoundUnity.dll", EntryPoint = "?update@@YAXXZ", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void GSoundUpdate();
 	
 	// Use this for initialization
 	void Start () {
-        GSoundInit();
+        GSound.Init();
+        GSound.AddSource(Application.dataPath + "/Sounds/acoustics.wav", 0, 1, -3, 1);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        GSoundUpdate();
+        GSound.Update();
 	}
 
     void OnApplicationQuit()
     {
-        GSoundStop();
+        GSound.Stop();
+        //GSound.Clear();
     }
 }
