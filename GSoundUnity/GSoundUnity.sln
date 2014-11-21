@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GSoundUnity", "GSoundUnity\GSoundUnity.vcxproj", "{D9613C58-AE8F-421A-9249-AFE4D2F07770}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GSoundUnityTest", "GSoundUnityTest\GSoundUnityTest.vcxproj", "{1099C1A6-3FAC-45AE-B828-8BBA2EE4F971}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{D9613C58-AE8F-421A-9249-AFE4D2F07770}.Debug|Win32.Build.0 = Debug|Win32
 		{D9613C58-AE8F-421A-9249-AFE4D2F07770}.Release|Win32.ActiveCfg = Release|Win32
 		{D9613C58-AE8F-421A-9249-AFE4D2F07770}.Release|Win32.Build.0 = Release|Win32
+		{1099C1A6-3FAC-45AE-B828-8BBA2EE4F971}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1099C1A6-3FAC-45AE-B828-8BBA2EE4F971}.Debug|Win32.Build.0 = Debug|Win32
+		{1099C1A6-3FAC-45AE-B828-8BBA2EE4F971}.Release|Win32.ActiveCfg = Release|Win32
+		{1099C1A6-3FAC-45AE-B828-8BBA2EE4F971}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

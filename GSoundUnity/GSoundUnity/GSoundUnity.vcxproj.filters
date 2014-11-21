@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GSoundUnity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gsound\dsp\Crossover.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -123,11 +120,11 @@
     <ClCompile Include="gsound\SoundSource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GSoundUnity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GSoundUnity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="gsound\dsp\ChannelGainArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -423,6 +420,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gsound\SoundVertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GSoundUnity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

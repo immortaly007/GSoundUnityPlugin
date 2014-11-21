@@ -1,15 +1,10 @@
 // GSoundUnity.cpp : Defines the exported functions for the DLL application.
 //
 #include "GSoundUnity.h"
+#include <iostream>
 
-
-int main(int argc, char** argv)
+void playSound()
 {
-	//math::SIMDScalar<float,8> asdf( 1.0f );
-
-	//printf("\n%f",asdf[0]);
-
-
 	// Make the current directory the same as the directory containing the executable.
 	setCurrentDirectory();
 
@@ -151,9 +146,11 @@ int main(int argc, char** argv)
 
 	Timer timer;
 
-	// Perform sound propagation for 20 seconds.
-	while (timer.getElapsedTime() < 30.0)
+	// Perform sound propagation for 30 seconds.
+	while (timer.getElapsedTime() < 5.0)
 	{
+		std::cout << timer.getElapsedTime();
+		std::cout << "\n";
 		// Perform sound propagation in the scene.
 		propagator.propagateSound(scene, // The scene in which to perform propagation.
 			listener, // The listener to use as the sound receiver.
@@ -172,8 +169,10 @@ int main(int argc, char** argv)
 	//***********************************************************************
 
 	// Stop outputing audio to the device and destroy it.
-	outputDevice->stop();
+	std::cout << "Stopping output device...\n";
+	outputDevice->stop(); // Bas: Apparently never ends
 	delete outputDevice;
+	std::cout << "Output device deleted...\n";
 
 	// Destroy the various objects used for propagation.
 	delete renderer;
@@ -182,9 +181,6 @@ int main(int argc, char** argv)
 	delete source;
 	delete boxObject;
 	delete box;
-
-
-	return 0;
 }
 
 

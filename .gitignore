@@ -34,3 +34,5 @@ GSoundUnity/GSoundUnity/Release/*
 GSoundUnity/GSoundUnity/Debug/*
 *.opensdf
 *.sdf
+GSoundUnity/GSoundUnityTest/Release/*
+*.vcxproj.user

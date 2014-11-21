@@ -63,11 +63,7 @@
 
 
 #include "GSoundBase.h"
-#ifdef GSOUND_EXPORTS
-#define GSOUND_API __declspec(dllexport) 
-#else 
-#define GSOUND_API __declspec(dllimport) 
-#endif 
+
 
 #include "internal/RayTracer.h"
 #include "internal/WorldSpaceTriangle.h"
@@ -97,7 +93,7 @@ namespace internal
 //********************************************************************************
 //********************************************************************************
 /// A class which performs sound propagation.
-class GSOUND_API SoundPropagator
+class SoundPropagator
 {
 	public:
 		

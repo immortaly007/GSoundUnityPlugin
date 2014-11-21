@@ -19,4 +19,4 @@ SoundMesh* loadBox(const AABB3& box, const SoundMaterial& material);
 void setCurrentDirectory();
 
 // Main method
-int main(int argc, char** argv);
+__declspec(dllexport) void playSound();
