@@ -8,6 +8,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GSoundUnityTest", "GSoundUnityTest\GSoundUnityTest.vcxproj", "{1099C1A6-3FAC-45AE-B828-8BBA2EE4F971}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoundCSharpTest", "GSoundCSharpTest\GSoundCSharpTest.csproj", "{F414C81E-E631-42A4-9D70-A968464DAF20}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D9613C58-AE8F-421A-9249-AFE4D2F07770} = {D9613C58-AE8F-421A-9249-AFE4D2F07770}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
