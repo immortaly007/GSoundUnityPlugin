@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D9613C58-AE8F-421A-9249-AFE4D2F07770}</ProjectGuid>
+    <RootNamespace>GSoundUnity</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="GSoundUnity.cpp" />
+    <ClCompile Include="gsound\dsp\Crossover.cpp" />
+    <ClCompile Include="gsound\dsp\SampleRateConverter.cpp" />
+    <ClCompile Include="gsound\dsp\SoundBuffer.cpp" />
+    <ClCompile Include="gsound\dsp\SoundDeviceID.cpp" />
+    <ClCompile Include="gsound\dsp\SoundDeviceManager.cpp" />
+    <ClCompile Include="gsound\dsp\SoundMixer.cpp" />
+    <ClCompile Include="gsound\dsp\SoundOutput.cpp" />
+    <ClCompile Include="gsound\dsp\SoundOutputDevice.cpp" />
+    <ClCompile Include="gsound\dsp\SoundPlayer.cpp" />
+    <ClCompile Include="gsound\dsp\SoundStream.cpp" />
+    <ClCompile Include="gsound\dsp\SpeakerConfiguation.cpp" />
+    <ClCompile Include="gsound\dsp\WaveDecoder.cpp" />
+    <ClCompile Include="gsound\FrequencyPartition.cpp" />
+    <ClCompile Include="gsound\FrequencyResponse.cpp" />
+    <ClCompile Include="gsound\internal\BoundingSphere.cpp" />
+    <ClCompile Include="gsound\internal\DiffractionFrequencyResponse.cpp" />
+    <ClCompile Include="gsound\internal\ProbePathCache.cpp" />
+    <ClCompile Include="gsound\internal\QBVHArrayTree.cpp" />
+    <ClCompile Include="gsound\internal\QBVHArrayTreeNode.cpp" />
+    <ClCompile Include="gsound\internal\RayDistributionCache.cpp" />
+    <ClCompile Include="gsound\internal\RayTracer.cpp" />
+    <ClCompile Include="gsound\internal\SphereTree.cpp" />
+    <ClCompile Include="gsound\PropagationPathID.cpp" />
+    <ClCompile Include="gsound\PropagationPathPoint.cpp" />
+    <ClCompile Include="gsound\SoundListener.cpp" />
+    <ClCompile Include="gsound\SoundMesh.cpp" />
+    <ClCompile Include="gsound\SoundMeshPreprocessor.cpp" />
+    <ClCompile Include="gsound\SoundMeshSerializer.cpp" />
+    <ClCompile Include="gsound\SoundPropagationController.cpp" />
+    <ClCompile Include="gsound\SoundPropagationRenderer.cpp" />
+    <ClCompile Include="gsound\SoundPropagator.cpp" />
+    <ClCompile Include="gsound\SoundScene.cpp" />
+    <ClCompile Include="gsound\SoundSource.cpp" />
+    <ClCompile Include="gsound\util\Mutex.cpp" />
+    <ClCompile Include="gsound\util\Timer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GSoundUnity.h" />
+    <ClInclude Include="gsound\DebugDrawingCache.h" />
+    <ClInclude Include="gsound\dsp\ChannelGainArray.h" />
+    <ClInclude Include="gsound\dsp\ChannelIOMap.h" />
+    <ClInclude Include="gsound\dsp\Crossover.h" />
+    <ClInclude Include="gsound\dsp\GSoundDSPConfig.h" />
+    <ClInclude Include="gsound\dsp\SampleMath.h" />
+    <ClInclude Include="gsound\dsp\SampleRateConverter.h" />
+    <ClInclude Include="gsound\dsp\SampleType.h" />
+    <ClInclude Include="gsound\dsp\SeekableSoundOutput.h" />
+    <ClInclude Include="gsound\dsp\SoundBuffer.h" />
+    <ClInclude Include="gsound\dsp\SoundDeviceID.h" />
+    <ClInclude Include="gsound\dsp\SoundDeviceManager.h" />
+    <ClInclude Include="gsound\dsp\SoundInput.h" />
+    <ClInclude Include="gsound\dsp\SoundMixer.h" />
+    <ClInclude Include="gsound\dsp\SoundOutput.h" />
+    <ClInclude Include="gsound\dsp\SoundOutputDevice.h" />
+    <ClInclude Include="gsound\dsp\SoundPlayer.h" />
+    <ClInclude Include="gsound\dsp\SoundProcessor.h" />
+    <ClInclude Include="gsound\dsp\SoundStream.h" />
+    <ClInclude Include="gsound\dsp\SpeakerConfiguration.h" />
+    <ClInclude Include="gsound\dsp\SpeakerType.h" />
+    <ClInclude Include="gsound\dsp\WaveDecoder.h" />
+    <ClInclude Include="gsound\FrequencyPartition.h" />
+    <ClInclude Include="gsound\FrequencyResponse.h" />
+    <ClInclude Include="gsound\GSound.h" />
+    <ClInclude Include="gsound\GSoundBase.h" />
+    <ClInclude Include="gsound\GSoundConfig.h" />
+    <ClInclude Include="gsound\GSoundDSP.h" />
+    <ClInclude Include="gsound\GSoundMath.h" />
+    <ClInclude Include="gsound\GSoundUtilities.h" />
+    <ClInclude Include="gsound\internal\BoundingSphere.h" />
+    <ClInclude Include="gsound\internal\DiffractionFrequencyResponse.h" />
+    <ClInclude Include="gsound\internal\FatSIMDRay3D.h" />
+    <ClInclude Include="gsound\internal\FatSIMDTriangle3D.h" />
+    <ClInclude Include="gsound\internal\GSoundInternalConfig.h" />
+    <ClInclude Include="gsound\internal\InternalSoundTriangle.h" />
+    <ClInclude Include="gsound\internal\ObjectSpaceTriangle.h" />
+    <ClInclude Include="gsound\internal\ProbedTriangleCache.h" />
+    <ClInclude Include="gsound\internal\ProbePath.h" />
+    <ClInclude Include="gsound\internal\ProbePathCache.h" />
+    <ClInclude Include="gsound\internal\QBVHArrayTree.h" />
+    <ClInclude Include="gsound\internal\QBVHArrayTreeNode.h" />
+    <ClInclude Include="gsound\internal\RayDistributionCache.h" />
+    <ClInclude Include="gsound\internal\RayTracer.h" />
+    <ClInclude Include="gsound\internal\SphereTree.h" />
+    <ClInclude Include="gsound\internal\WorldSpaceTriangle.h" />
+    <ClInclude Include="gsound\math\AABB1D.h" />
+    <ClInclude Include="gsound\math\AABB3D.h" />
+    <ClInclude Include="gsound\math\Complex.h" />
+    <ClInclude Include="gsound\math\GSoundMathConfig.h" />
+    <ClInclude Include="gsound\math\Matrix3D.h" />
+    <ClInclude Include="gsound\math\Plane3D.h" />
+    <ClInclude Include="gsound\math\RandomVariable.h" />
+    <ClInclude Include="gsound\math\Ray3D.h" />
+    <ClInclude Include="gsound\math\ScalarMath.h" />
+    <ClInclude Include="gsound\math\SIMDAABB3D.h" />
+    <ClInclude Include="gsound\math\SIMDRay3D.h" />
+    <ClInclude Include="gsound\math\SIMDScalar.h" />
+    <ClInclude Include="gsound\math\SIMDScalarBool4.h" />
+    <ClInclude Include="gsound\math\SIMDScalarBoolN.h" />
+    <ClInclude Include="gsound\math\SIMDScalarFloat4.h" />
+    <ClInclude Include="gsound\math\SIMDScalarFloatN.h" />
+    <ClInclude Include="gsound\math\SIMDScalarInt4.h" />
+    <ClInclude Include="gsound\math\SIMDScalarIntN.h" />
+    <ClInclude Include="gsound\math\SIMDTriangle3D.h" />
+    <ClInclude Include="gsound\math\SIMDVector3D.h" />
+    <ClInclude Include="gsound\math\Transformation3D.h" />
+    <ClInclude Include="gsound\math\Vector2D.h" />
+    <ClInclude Include="gsound\math\Vector3D.h" />
+    <ClInclude Include="gsound\PropagationPath.h" />
+    <ClInclude Include="gsound\PropagationPathDescription.h" />
+    <ClInclude Include="gsound\PropagationPathID.h" />
+    <ClInclude Include="gsound\PropagationPathPoint.h" />
+    <ClInclude Include="gsound\SoundDistanceAttenuation.h" />
+    <ClInclude Include="gsound\SoundListener.h" />
+    <ClInclude Include="gsound\SoundMaterial.h" />
+    <ClInclude Include="gsound\SoundMesh.h" />
+    <ClInclude Include="gsound\SoundMeshPreprocessor.h" />
+    <ClInclude Include="gsound\SoundMeshSerializer.h" />
+    <ClInclude Include="gsound\SoundObject.h" />
+    <ClInclude Include="gsound\SoundPropagationController.h" />
+    <ClInclude Include="gsound\SoundPropagationPathBuffer.h" />
+    <ClInclude Include="gsound\SoundPropagationRenderer.h" />
+    <ClInclude Include="gsound\SoundPropagator.h" />
+    <ClInclude Include="gsound\SoundScene.h" />
+    <ClInclude Include="gsound\SoundSource.h" />
+    <ClInclude Include="gsound\SoundSourcePropagationPathBuffer.h" />
+    <ClInclude Include="gsound\SoundSourceReverbResponse.h" />
+    <ClInclude Include="gsound\SoundTriangle.h" />
+    <ClInclude Include="gsound\SoundVertex.h" />
+    <ClInclude Include="gsound\util\Allocator.h" />
+    <ClInclude Include="gsound\util\ArrayList.h" />
+    <ClInclude Include="gsound\util\GSoundUtilitiesConfig.h" />
+    <ClInclude Include="gsound\util\HashMap.h" />
+    <ClInclude Include="gsound\util\HashSet.h" />
+    <ClInclude Include="gsound\util\Mutex.h" />
+    <ClInclude Include="gsound\util\StaticArray.h" />
+    <ClInclude Include="gsound\util\StaticArrayList.h" />
+    <ClInclude Include="gsound\util\Timer.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

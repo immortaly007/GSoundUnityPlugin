@@ -26,3 +26,11 @@
 *.exe
 *.out
 *.app
+*.ipch
+*/Release/*
+*.suo
+GSoundUnity/Debug/*
+GSoundUnity/GSoundUnity/Release/*
+GSoundUnity/GSoundUnity/Debug/*
+*.opensdf
+*.sdf
