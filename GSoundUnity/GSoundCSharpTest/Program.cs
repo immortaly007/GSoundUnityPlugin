@@ -17,9 +17,9 @@ namespace GSoundCSharpTest
             //playSound("C:/acoustics.wav");
             GSound.GSound.Init();
             //GSound.GSound.AddSource(Environment.CurrentDirectory + "/Data/acoustics.wav", 0, 1, -3, 1);
-            GSound.GSound.AddSource("C:/acoustics.wav", 0, 1, -3, 1);
+            GSound.GSound.AddSource("C:/acoustics.wav", -1.5f, 1, -3, 1);
             var box = new AABB(-2, 2, 0, 3, -4, 4);
-            var material = new SoundMaterial(Material.Plywood);
+            var material = new SoundMaterial(Material.Soil);
             GSound.GSound.AddAABB(box, material);
             var time = new Stopwatch();
             time.Start();

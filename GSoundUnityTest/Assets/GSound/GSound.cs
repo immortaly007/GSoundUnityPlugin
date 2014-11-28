@@ -31,7 +31,7 @@ namespace GSound
         [DllImport("GSoundUnity.dll", EntryPoint = "?addSource@@YAXPBDMMMM@Z", CallingConvention = CallingConvention.Cdecl)]
         public static extern void AddSource(string filename, float posX, float posY, float posZ, float volume);
 
-        [DllImport("GSoundUnity.dll", EntryPoint = "?addAABB@@YAXMMMMMMMMMMMMMMMMM@Z", CallingConvention = CallingConvention.StdCall)]
+        [DllImport("GSoundUnity.dll", EntryPoint = "?addAABB@@YAXMMMMMMMMMMMMMMMMM@Z", CallingConvention = CallingConvention.Cdecl)]
         public static extern void AddAABB(float minX, float maxX, float minY, float maxY, float minZ, float maxZ,
             float gain67, float gain125, float gain250, float gain500,
             float gain1000, float gain2000, float gain4000, float gain8000,

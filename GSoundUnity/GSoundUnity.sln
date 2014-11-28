@@ -57,6 +57,7 @@ Global
 		{F414C81E-E631-42A4-9D70-A968464DAF20}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F414C81E-E631-42A4-9D70-A968464DAF20}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F414C81E-E631-42A4-9D70-A968464DAF20}.Release|Win32.ActiveCfg = Release|Any CPU
+		{F414C81E-E631-42A4-9D70-A968464DAF20}.Release|Win32.Build.0 = Release|Any CPU
 		{FE2E10B2-74DE-45EC-814A-04961088DE3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FE2E10B2-74DE-45EC-814A-04961088DE3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE2E10B2-74DE-45EC-814A-04961088DE3B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -67,6 +68,7 @@ Global
 		{FE2E10B2-74DE-45EC-814A-04961088DE3B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{FE2E10B2-74DE-45EC-814A-04961088DE3B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{FE2E10B2-74DE-45EC-814A-04961088DE3B}.Release|Win32.ActiveCfg = Release|Any CPU
+		{FE2E10B2-74DE-45EC-814A-04961088DE3B}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
