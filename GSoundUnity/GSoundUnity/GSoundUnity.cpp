@@ -393,28 +393,28 @@ SoundMesh* loadBox(const AABB3& box, const SoundMaterial& material)
 	vertices.add(SoundVertex(box.max.x, box.min.y, box.max.z));
 
 	// negative z face
-	triangles.add(SoundTriangle(0, 1, 2, 0));
-	triangles.add(SoundTriangle(0, 2, 6, 0));
+	triangles.add(SoundTriangle(0, 2, 1, 0));
+	triangles.add(SoundTriangle(0, 6, 2, 0));
 
 	// positive z face
-	triangles.add(SoundTriangle(3, 5, 4, 0));
-	triangles.add(SoundTriangle(3, 7, 4, 0));
+	triangles.add(SoundTriangle(3, 4, 5, 0));
+	triangles.add(SoundTriangle(3, 4, 7, 0));
 
 	// positive y face
-	triangles.add(SoundTriangle(6, 3, 5, 0));
-	triangles.add(SoundTriangle(6, 2, 3, 0));
+	triangles.add(SoundTriangle(6, 5, 3, 0));
+	triangles.add(SoundTriangle(6, 3, 2, 0));
 
 	// negative y face
-	triangles.add(SoundTriangle(0, 7, 4, 0));
-	triangles.add(SoundTriangle(0, 1, 7, 0));
+	triangles.add(SoundTriangle(0, 4, 7, 0));
+	triangles.add(SoundTriangle(0, 7, 1, 0));
 
 	// negative x face
-	triangles.add(SoundTriangle(0, 4, 6, 0));
-	triangles.add(SoundTriangle(4, 6, 5, 0));
+	triangles.add(SoundTriangle(0, 6, 4, 0));
+	triangles.add(SoundTriangle(4, 5, 6, 0));
 
 	// positive x face
-	triangles.add(SoundTriangle(1, 7, 2, 0));
-	triangles.add(SoundTriangle(7, 2, 3, 0));
+	triangles.add(SoundTriangle(1, 2, 7, 0));
+	triangles.add(SoundTriangle(7, 3, 2, 0));
 
 	ArrayList<SoundMaterial> materials;
 	materials.add(material);

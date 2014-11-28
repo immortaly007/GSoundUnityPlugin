@@ -41,3 +41,5 @@ GSoundUnity/GSoundCSharpTest/obj/*
 GSoundUnity/GSoundUnityTest/Debug/GSoundUnityTest.tlog/link.command.1.tlog
 GSoundUnity/GSoundUnityTest/Debug/*
 *.exp
+GSoundUnity/GSoundPlugin/obj/*
+GSoundUnityTest/bin/Release/*
